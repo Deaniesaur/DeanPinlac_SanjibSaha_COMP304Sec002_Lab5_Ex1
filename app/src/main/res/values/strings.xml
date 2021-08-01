@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">DeanPinlac_SanjibSaha_COMP304Sec002_Lab5_Ex1</string>
+    <string name="labelCuisine">Cuisines</string>
+    <string name="placeholderCuisine">Cuisine Placeholder</string>
+    <string name="googleApiKey">AIzaSyA7NWyy2RQK5WXxYxcaQ88xIBJWsC85Rfc</string>
+
+    <string-array name="cuisineList">
+        <item>Italian</item>
+        <item>Greek</item>
+        <item>Chinese</item>
+        <item>Indian</item>
+        <item>Japanese</item>
+        <item>Filipino</item>
+    </string-array>
+
 </resources>
