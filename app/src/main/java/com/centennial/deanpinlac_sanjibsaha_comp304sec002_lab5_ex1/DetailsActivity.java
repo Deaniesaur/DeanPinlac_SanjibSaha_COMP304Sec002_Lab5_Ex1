@@ -102,17 +102,21 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
             textRestaurantName.setText(place.getName());
             String shortAddress = getShortAddress(place.getAddressComponents());
             textRestaurantAddress.setText("Address: " + shortAddress);
-            List<Period> periods = place.getOpeningHours().getPeriods();
-            LocalDate date = LocalDate.now();
-            int day = date.getDayOfWeek().getValue();
-            Period period = periods.get(day % 7);
-            LocalTime openTime = LocalTime.of(period.getOpen().getTime().getHours(),
-                    period.getOpen().getTime().getMinutes());
-            LocalTime closeTime = LocalTime.of(period.getClose().getTime().getHours(),
-                    period.getClose().getTime().getMinutes());
-            String opening = openTime.format(dtf) +
-                    " to " + closeTime.format(dtf);
-            textRestaurantOpening.setText("Today's Opening: " + opening);
+            try{
+                List<Period> periods = place.getOpeningHours().getPeriods();
+                LocalDate date = LocalDate.now();
+                int day = date.getDayOfWeek().getValue();
+                Period period = periods.get(day % 7);
+                LocalTime openTime = LocalTime.of(period.getOpen().getTime().getHours(),
+                        period.getOpen().getTime().getMinutes());
+                LocalTime closeTime = LocalTime.of(period.getClose().getTime().getHours(),
+                        period.getClose().getTime().getMinutes());
+                String opening = openTime.format(dtf) +
+                        " to " + closeTime.format(dtf);
+                textRestaurantOpening.setText("Today's Opening: " + opening);
+            }catch(Exception e){
+                textRestaurantOpening.setText("Today's Opening: Not Available" );
+            }
             textRestaurantContact.setText("Contact: " + place.getPhoneNumber());
             textRestaurantRating.setText("Rating: " + place.getRating() + " out of 5");
 
