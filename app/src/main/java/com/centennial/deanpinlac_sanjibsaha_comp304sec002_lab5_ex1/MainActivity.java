@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listCuisines = findViewById(R.id.listCuisines);
         listCuisines.setOnItemClickListener((adapterView, view, i, l) -> {
             String cuisine = adapterView.getItemAtPosition(i).toString();
-            displayMessage(cuisine);
+//            displayMessage(cuisine);
 
             //Send Cuisine of Choice to next Activity
             sharedPref.edit().putString("cuisine", cuisine).apply();
