@@ -1,38 +1,29 @@
 package com.centennial.deanpinlac_sanjibsaha_comp304sec002_lab5_ex1;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextPaint;
-import android.text.style.CharacterStyle;
 import android.util.Log;
-import android.widget.Adapter;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.AutocompletePrediction;
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
-import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.RectangularBounds;
 import com.google.android.libraries.places.api.model.TypeFilter;
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest;
 import com.google.android.libraries.places.api.net.PlacesClient;
-import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
-import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 
 public class RestaurantListActivity extends AppCompatActivity {
 
@@ -61,11 +52,12 @@ public class RestaurantListActivity extends AppCompatActivity {
 
         AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
 
+        //Rectangular Bounds of Toronto
         RectangularBounds bounds = RectangularBounds.newInstance(
                 new LatLng(43.582520, -79.650662),
                 new LatLng(43.857446, -79.117825)
         );
-//
+
         FindAutocompletePredictionsRequest request = FindAutocompletePredictionsRequest.builder()
                 .setLocationBias(bounds)
                 .setCountry("CA")
@@ -73,7 +65,7 @@ public class RestaurantListActivity extends AppCompatActivity {
                 .setSessionToken(token)
                 .setQuery(cuisineQuery)
                 .build();
-//
+
         placesClient.findAutocompletePredictions(request).addOnSuccessListener((response) -> {
             listPlaceId.clear();
             listPlaceName.clear();
@@ -92,31 +84,16 @@ public class RestaurantListActivity extends AppCompatActivity {
             }
         });
 
+        listRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                sharedPref.edit().putString("placeId", listPlaceId.get(i)).apply();
 
-
-//        //Initialize the AutocompleteSupportFragment
-//        AutocompleteSupportFragment autocompleteRestaurant = (AutocompleteSupportFragment)
-//                getSupportFragmentManager().findFragmentById(R.id.autocompleteRestaurant);
-//
-//        //Specify the types of place data to return
-//        autocompleteRestaurant.setPlaceFields(Arrays.asList(
-//                Place.Field.ID, Place.Field.NAME, Place.Field.TYPES));
-//
-//        autocompleteRestaurant.setTypeFilter(TypeFilter.ESTABLISHMENT);
-////        autocompleteRestaurant.setTypeFilter(TypeFilter.valueOf("restaurant"));
-//        autocompleteRestaurant.setCountry("CA");
-//        displayMessage("Hello Dean");
-//        autocompleteRestaurant.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-//            @Override
-//            public void onPlaceSelected(@NonNull Place place) {
-//                displayMessage(place.getId() + " | " + place.getName());
-//            }
-//
-//            @Override
-//            public void onError(@NonNull Status status) {
-//
-//            }
-//        });
+                Intent intent = new Intent(RestaurantListActivity.this,
+                        DetailsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void displayMessage(String message){
