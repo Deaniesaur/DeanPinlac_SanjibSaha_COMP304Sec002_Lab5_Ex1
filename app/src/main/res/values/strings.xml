@@ -13,9 +13,12 @@
         <item>Italian</item>
         <item>Greek</item>
         <item>Chinese</item>
+        <item>Korean</item>
         <item>Indian</item>
+        <item>Thai</item>
         <item>Japanese</item>
         <item>Filipino</item>
+        <item>Vegan</item>
     </string-array>
 
 </resources>
