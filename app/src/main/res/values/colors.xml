@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //Custom Colors
+    <color name="spaceCadet">#22223B</color>
+    <color name="independence">#4A4E69</color>
+    <color name="heliotrope">#9A8C98</color>
+    <color name="silverPink">#C9ADA7</color>
+    <color name="isabelline">#F2E9E4</color>
 </resources>

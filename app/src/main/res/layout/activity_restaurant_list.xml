@@ -7,21 +7,33 @@
     tools:context=".RestaurantListActivity">
 
     <TextView
+        style="@style/Label"
         android:id="@+id/labelCuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing10"
         android:text="@string/placeholderCuisine"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listRestaurants"
+    <androidx.cardview.widget.CardView
+        style="@style/Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing10"
         app:layout_constraintTop_toBottomOf="@id/labelCuisine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="@dimen/corner5">
+
+        <ListView
+            style="@style/List"
+            android:id="@+id/listRestaurants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing10"/>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

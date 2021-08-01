@@ -11,6 +11,35 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Customize your theme here. --><!-- Customize your theme here. -->
+        <item name="android:backgroundTint">@color/spaceCadet</item>
+        <item name="android:textColor">@color/spaceCadet</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="List">
+        <item name="android:divider">@color/independence</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:textColor">@color/spaceCadet</item>
+    </style>
+
+    <style name="Label">
+        <item name="android:textColor">@color/isabelline</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="Label2">
+        <item name="android:textColor">@color/spaceCadet</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Label3">
+        <item name="android:textColor">@color/spaceCadet</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:backgroundTint">@color/heliotrope</item>
     </style>
 </resources>

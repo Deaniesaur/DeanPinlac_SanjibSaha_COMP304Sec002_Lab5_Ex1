@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        style="@style/Label"
         android:id="@+id/labelCuisines"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,14 +17,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ListView
-        android:id="@+id/listCuisines"
+    <androidx.cardview.widget.CardView
+        style="@style/Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing10"
         app:layout_constraintTop_toBottomOf="@id/labelCuisines"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:entries="@array/cuisineList"/>
+        app:cardCornerRadius="@dimen/corner5">
+
+        <ListView
+            style="@style/List"
+            android:id="@+id/listCuisines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing10"
+            android:entries="@array/cuisineList"/>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

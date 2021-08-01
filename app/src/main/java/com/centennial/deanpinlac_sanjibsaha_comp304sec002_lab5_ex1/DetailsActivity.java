@@ -120,7 +120,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
                     .position(place.getLatLng())
                     .title(place.getName()));
 
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), 16));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), 15));
         }).addOnFailureListener((exception) -> {
             if (exception instanceof ApiException) {
                 final ApiException apiException = (ApiException) exception;
